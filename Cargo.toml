@@ -1,0 +1,15 @@
+[package]
+name = "bbq-blog"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# this is the development version of Yew
+yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
+chrono = "0.4.39"
+chrono-tz = "0.8"
+pulldown-cmark = "0.9.1"
+proc-macro-error = "1"
+proc-macro2 = "1"
+web-sys = { version = "0.3", features = ["console"] }
+
