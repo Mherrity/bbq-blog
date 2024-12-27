@@ -17,7 +17,9 @@ fn App() -> Html {
         <>
             <components::header::Header />
             <components::about::About />
-            <components::logs::Dec_13::Dec_13 />
+            <components::dropdown::Dropdown title="Dec 13th [Brisket]">
+                <components::logs::Dec_13::Dec_13 />
+            </components::dropdown::Dropdown>
         </>
 
     }

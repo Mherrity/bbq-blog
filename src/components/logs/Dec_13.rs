@@ -7,6 +7,8 @@ use yew::prelude::*;
 use yew::props;
 use crate::components::carasoul;
 use crate::components::key_takeaways;
+use crate::components::timeline;
+use crate::components::dropdown;
 
 const BLOG_TEXT : &str = 
 "Started this cook at around 12:20 AM at 225. Checked in on it at 4:30 and then again at 6:30. It felt dry to the touch on the point when I checked on it the second time. Probably should start a little later like 3 am and then check at 6 am instead of 12 when spraying every hour is unrealistic having work at 9 am. 
@@ -19,7 +21,7 @@ The juices are pooling around it so hopefully it is super juice. I feel like if 
 
 Cut it at 3:39, roughly 2:30 minutes resting. I realized I cooked in a fat cap up! This definitely makes a difference in terms of the juice, fat cap up is much juicer but I don’t know how to get the bark as good. The bark was wayyy too moist so I don’t know how to get around that. I think fat cap down + tallow on the bark might be the move. I also didn’t get the smoke ring that I usually get when I smoke for this long. 
 
-Passed the tear test and finger test!
+Passed the tear test and bend test!
 
 I also think that the flat was less juicy than the cap but not dry. I wonder if I cooked the other way around if it would have dried out. 
 ";
@@ -45,15 +47,54 @@ pub fn Dec_13() -> Html {
         ]
     }};
 
+    let timeline_props = props! { timeline::TimelineProps {
+        events: vec![
+            timeline::TimelineEvent {
+                date: "12:20 AM".to_string(),
+                title: "Started the cook".to_string(),
+                description: "Started the cook at 225. Checked in on it at 4:30 and then again at 6:30. It felt dry to the touch on the point when I checked on it the second time. Probably should start a little later like 3 am and then check at 6 am instead of 12 when spraying every hour is unrealistic having work at 9 am.".to_string(),
+            },
+            timeline::TimelineEvent {
+                date: "7:16 AM".to_string(),
+                title: "Wrapped the brisket".to_string(),
+                description: "Sprayed both times I checked on it and wrapped it at 7:16 AM when it looked like the temperature was stalling out at around 150. Bumped the temp from 225 to 275".to_string(),
+            },
+            timeline::TimelineEvent {
+                date: "11:47 AM".to_string(),
+                title: "Bumped temp to 300".to_string(),
+                description: "After hitting a stall at around 185 I bumped the temp from 275 to 300.".to_string(),
+            },
+            timeline::TimelineEvent {
+                date: "1:07 PM".to_string(),
+                title: "Took the brisket off".to_string(),
+                description: "Took the brisket off at around 195 in the point.".to_string(),
+            },
+            timeline::TimelineEvent {
+                date: "3:39 PM".to_string(),
+                title: "Cut the brisket".to_string(),
+                description: "Cut it at 3:39, roughly 2:30 minutes resting. Was super juicy and tender.".to_string(),
+            },
+        ]
+    }};
+
+
     html! {
-    <>
+    <>  
+        <dropdown::Dropdown title="Photos">
+            <carasoul::Carousel />
+         </dropdown::Dropdown>
+
+        <dropdown::Dropdown title="Brisket Info">
+
         <div class="flex justify-center items-center">
             <div class="max-w-3xl">
                 <BrisketInfoTable ..brisket />
             </div>
         </div>
-       
-        <carasoul::Carousel />
+        
+        </dropdown::Dropdown>
+
+    <dropdown::Dropdown title="Analysis">
         <div class="max-w-3xl mx-auto px-4">
             <div class="bg-white p-8 rounded-lg shadow-md font-serif">
                 {BLOG_TEXT.split("\n").map(|line| {
@@ -69,8 +110,15 @@ pub fn Dec_13() -> Html {
                 }).collect::<Html>()}
             </div>
         </div>
-               <key_takeaways::KeyTakeaways ..key_takeaways />
+     </dropdown::Dropdown>
+     <dropdown::Dropdown title="Timeline">
+        <timeline::Timeline ..timeline_props />
+    </dropdown::Dropdown>
 
+    <dropdown::Dropdown title="Key Takeaways">
+        <key_takeaways::KeyTakeaways ..key_takeaways />
+    </dropdown::Dropdown>
+        
     </>
         }
 }
