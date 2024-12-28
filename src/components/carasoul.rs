@@ -7,13 +7,18 @@ use yew::prelude::*;
 use yew::prelude::*;
 
 #[derive(Properties, Clone, PartialEq)]
+pub struct CarouselProps {
+    pub images: Vec<CarouselImage>,
+}
+
+#[derive(Properties, Clone, PartialEq)]
 pub struct CarouselImage {
     src: AttrValue,
     alt: AttrValue,
     caption: AttrValue,
 }
 impl CarouselImage {
-    fn new(
+    pub fn new(
         src: impl Into<AttrValue>,
         alt: impl Into<AttrValue>,
         caption: impl Into<AttrValue>,
@@ -118,48 +123,15 @@ pub enum Msg {
 
 impl Component for Carousel {
     type Message = Msg;
-    type Properties = ();
+    type Properties = CarouselProps;
 
     fn create(_ctx: &Context<Self>) -> Self {
         let current_index = Rc::new(Cell::new(0));
         let is_modal_open = Rc::new(Cell::new(false));
-        let images = vec![
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/943040ab-bc0e-43a9-60e1-73ff6c768500/public",
-                "Sample image 1",
-                "Brisket after resting, definitely should have you trimmed better to get bark on that flank. Also wasn't really able to get good bark when cooking fat cap up.",
-            ),
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/8a96422f-f724-467e-a95c-bfaa0cc30100/public",
-                "Sample image 2",
-                "Passing the bend test with a thick slice! Was super super juicy and flavorful",
-            ),
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/98aa4f11-0fe3-4475-64b6-6cd3f077e500/public",
-                "Sample image 3",
-                "When cut in half, as you can see, super super juicy but the bark was not as good as I wanted it to be and I didn't really get a good smoke ring",
-            ),
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/d7b11955-4d4a-4b61-a9ab-20c4adbcf000/public",
-                "Sample image 3",
-                "Graph of smoker temperature and meat temperature in the point. Really like the consistient curve and think I pulled at the right time. I think that bumping anytime you hit a slight stall and then pulling at 195-200 based on the probe tenderness works well for me.",
-            ),
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/16a1d066-d07d-4e4e-8041-7f102f079500/public",
-                "Sample image 3",
-                "Front of wildfork brisket pre-seasoning",
-            ),
-            CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/09accf6c-7167-472f-f836-2d8d54e1a400/public",
-                "Sample image 3",
-                "Back of wildfork brisket pre-seasoning",
-            ),
-        ];
-
         Self {
             current_index,
             is_modal_open,
-            images,
+            images: _ctx.props().images.clone(),
         }
     }
 

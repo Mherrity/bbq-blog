@@ -6,6 +6,7 @@ pub enum BrisketSupplier {
     Costco,
     WildFork,
     SnakeRiver,
+    RestaurantDepot,
 }
 impl BrisketSupplier {
     fn name(&self) -> AttrValue {
@@ -13,6 +14,7 @@ impl BrisketSupplier {
             BrisketSupplier::Costco => AttrValue::from("Costco"),
             BrisketSupplier::WildFork => AttrValue::from("Wild Fork"),
             BrisketSupplier::SnakeRiver => AttrValue::from("Snake River Farms"),
+            BrisketSupplier::RestaurantDepot => AttrValue::from("Restaurant Depot"),
         }
     }
 }
