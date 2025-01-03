@@ -23,7 +23,7 @@ Overall I give this brisket a 5/10. The point was amazing but the flat was sooo 
 
 
 #[function_component]
-pub fn Dec_30() -> Html {
+pub fn Dec_20() -> Html {
 
         let brisket = props! { BrisketInfo {
         name: AttrValue::from("Dec 20th Brisket"),

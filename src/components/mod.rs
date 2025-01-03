@@ -1,5 +1,6 @@
 pub mod about;
 pub mod brisket_info_table;
+pub mod brisket_log;
 pub mod carasoul;
 pub mod dropdown;
 pub mod header;

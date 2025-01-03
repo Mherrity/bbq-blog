@@ -47,7 +47,7 @@ impl BrisketRub {
     }
 }
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Clone)]
 pub struct BrisketInfo {
     pub name: AttrValue,
     pub supplier: BrisketSupplier,
