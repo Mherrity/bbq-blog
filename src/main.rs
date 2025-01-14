@@ -18,6 +18,9 @@ fn App() -> Html {
             <components::dropdown::Dropdown title="Dec 31st [Brisket]">
                 <components::logs::Dec_31::Dec_31/>
             </components::dropdown::Dropdown>
+            <components::dropdown::Dropdown title="Jan 3rd [Brisket]">
+                <components::logs::Jan_3rd::Jan_3rd/>
+            </components::dropdown::Dropdown>
 
         </>
 
