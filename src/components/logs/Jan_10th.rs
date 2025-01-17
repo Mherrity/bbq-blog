@@ -11,35 +11,32 @@ use crate::components::timeline;
 use crate::components::dropdown;
 
 const BLOG_TEXT : &str = 
-"This cook I wanted to try the Bar A, cold smoke method where you smoke at like 150 for 5-6 hours and then cook it higher so you can pull sooner. Because I don’t have an offset I used these Jealous Devil blocks and firewood to try to get more smoky flavor. 
+"
+Last week I was in texas for three days and one of my biggest takeaways from visiting some of the best in the country is that I am definitely pulling way too early and was too afraid to bump the temperature. 
 
-At the beginning I was able to manually maintain the fire at like 150 to 170 but as I went to sleep I put more wood in and the masterbuilt wasn’t able to keep the fire below 250 so we were hitting 160 at like 1:30 AM after putting stuff on at 10 PM. After that I was a lot more careful with adding firewood and found that 1 log was able to last me at 225 til 6 AM. 
+Most of the best places I went to did 250 and bumped to 300 after wrapping until they felt good. I didn’t understand this at first but I realized that a lot of what I used to think was the meat drying out in places I didn’t like what actually the meat not fully breaking down so it was tough and when its tough the juices can’t get in. 
 
-I found the consistency and bark was what I wanted around 6 AM so I decided to turn it up to 275 until we hit 200 internal and I pulled it. 
+So the idea here is to basically replicate what I did last time with the wood and foil boat for good bark but then pull much later at like 203 and see how it turns out. Because I completely failed at the cold smoke last time I’m not even gonna try that and just rock with 220-250 til its time to boat and bump it up to 250. 
 
-This thing really was sooo good, the bark was what I wanted, the consistency was the best that I’ve had yet. I think that letting it cooking longer and keeping the top cover off really helped the bark develop. My takeaway is that I was wrapping too early. 
+Honesty after pulling this thing this is the best brisket I have ever made. Super super tender, best bark I’ve gotten yet. I still don’t have the bark because when I handle it its prone to fall off. I also think that I wasn’t aggressive enough with the trimming in some areas. Anyways I’ll try to figure out how to get the bark better. 
 ";
 
 #[function_component]
-pub fn Jan_3rd() -> Html {
+pub fn Jan_10th() -> Html {
     let brisket = props! { BrisketInfo {
-        name: AttrValue::from("Jan 3rd Brisket"),
+        name: AttrValue::from("Jan 10th Brisket"),
         supplier: BrisketSupplier::WildFork,
-        price: 48.60,
-        weight: 9.76,
+        price: 57.82,
+        weight: 11.61,
         rub: BrisketRub::LoneStarRub,
         grade: BrisketGrade::Prime,
-        image: AttrValue::from("https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/b075eee8-4a96-4a47-5718-3fb3a07fe000/public"),
-        start_time: AttrValue::from("2024-01-02-T00:22:00-05:00"),
+        image: AttrValue::from("https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/8d07d1bc-676c-40c5-8709-9b15883eb600/public"),
+        start_time: AttrValue::from("2024-01-10-T00:22:00-05:00"),
     } };
     let key_takeaways = props! { key_takeaways::KeyTakeawaysProps{
         key_takeaways: vec![
-            "Even if the smoke is bad smoke, real smoke better than no smoke".to_string(),
-            "You can let stuff sit for a while on the smoker unwrapped without it drying out".to_string(),
-            "The water pan makes a huge difference in the bark and consistency of the cook.".to_string(),
-            "Fat cap up is the move and you can develop really good bark on the fat side".to_string(),
-            "Still need to trim better, and let it cook longer, going to try to wait til I get probe tender in the flat".to_string(),
-            "Foil boat seems to work as well? Unclear weather the tenderness was from the foil boat or the cook.".to_string(),
+           "Taking it off at 203 or makes a huge difference in tenderness and juiciness.".to_string(),
+            "Need to be more aggressive with trimming, especially in the flat which I didn't think was going to be the case.".to_string(),
         ]
     }};
 
@@ -65,24 +62,24 @@ pub fn Jan_3rd() -> Html {
 
             let images = vec![
             carasoul::CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/b075eee8-4a96-4a47-5718-3fb3a07fe000/public",
+                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/abdfad80-c684-4684-68ac-7a4ccde9e600/public",
                 "Sample image 1",
-                "Top level when I pulled the brisket, this color bark was a first!!",
+                "Bend test passed 😎 s/o @ovpleasefocus for the camera work",
             ),
             carasoul::CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/5f9bc849-0ffe-4568-bc1e-37b6a0333b00/public",
+                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/4227e044-fee4-45b3-b347-7b4c035bc300/public",
                 "Sample image 1",
-                "Nice cross section showing the bark we got and how juicy it was.",
+                "Cross section of the brisket, you can see how it's really breaking down. Those cracks in the meat are a good sign. You can also see the top bark that is falling off.",
             ),
             carasoul::CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/50531014-93e4-44fa-0f62-3982e55f9400/public",
+                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/1a791449-e56c-4023-c082-66e9fa459b00/public",
                 "Sample image 1",
-                "Brisket during the stall, you can see how if I wrapped here it would be nowhere close to where I want it to be.",
+                "Temp graph, you can see how I have no control over this thing lol",
             ),
             carasoul::CarouselImage::new(
-                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/096f74e9-0cd2-4244-e63e-5d6d866f9800/public",
+                "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/8d07d1bc-676c-40c5-8709-9b15883eb600/public",
                 "Sample image 1",
-                "Tempeature graph, you can see how bad I am at controlling the temperature early.",
+                "When the brisket was pulled, exactly the color bark that I'm shooting for.",
             ),
             // carasoul::CarouselImage::new(
             //     "https://imagedelivery.net/cY9nr3ozwYWtSYKWdfK7tg/9a6ed61e-306a-41bb-8359-d2f2bc821b00/public",
@@ -105,6 +102,7 @@ pub fn Jan_3rd() -> Html {
             //     "Top view of bark. Better! But not where we want to be.",
             // ),
         ];
+
 
     html! {
     <>  
