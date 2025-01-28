@@ -6,4 +6,5 @@ pub mod dropdown;
 pub mod header;
 pub mod key_takeaways;
 pub mod logs;
+pub mod multimedia_carasoul;
 pub mod timeline;
